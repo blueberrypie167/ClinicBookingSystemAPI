@@ -1,0 +1,224 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{544D1909-DEC3-46F4-9DFD-C8716C1A6145}|Infrastructure\\Infrastructure.csproj|c:\\users\\thinkpad\\source\\repos\\bookingsystemapi\\infrastructure\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{544D1909-DEC3-46F4-9DFD-C8716C1A6145}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{544D1909-DEC3-46F4-9DFD-C8716C1A6145}|Infrastructure\\Infrastructure.csproj|c:\\users\\thinkpad\\source\\repos\\bookingsystemapi\\infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{544D1909-DEC3-46F4-9DFD-C8716C1A6145}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3192A3C6-8E61-304E-BF8B-B83341C529FC}|BookingSystemAPI\\BookingSystemAPI.csproj|c:\\users\\thinkpad\\source\\repos\\bookingsystemapi\\bookingsystemapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3192A3C6-8E61-304E-BF8B-B83341C529FC}|BookingSystemAPI\\BookingSystemAPI.csproj|solutionrelative:bookingsystemapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A9FBECC-1CFA-4193-90A0-0203DF1F4445}|Application\\Application.csproj|c:\\users\\thinkpad\\source\\repos\\bookingsystemapi\\application\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A9FBECC-1CFA-4193-90A0-0203DF1F4445}|Application\\Application.csproj|solutionrelative:application\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BEC5A778-93F0-4098-98ED-A23D261DA2F4}|Domain\\Domain.csproj|c:\\users\\thinkpad\\source\\repos\\bookingsystemapi\\domain\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BEC5A778-93F0-4098-98ED-A23D261DA2F4}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E1250760-D190-4D98-8CC8-D57138652802}|Presentation\\Presentation.csproj|c:\\users\\thinkpad\\source\\repos\\bookingsystemapi\\presentation\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E1250760-D190-4D98-8CC8-D57138652802}|Presentation\\Presentation.csproj|solutionrelative:presentation\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3192A3C6-8E61-304E-BF8B-B83341C529FC}|BookingSystemAPI\\BookingSystemAPI.csproj|c:\\users\\thinkpad\\source\\repos\\bookingsystemapi\\bookingsystemapi\\bookingsystemapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{3192A3C6-8E61-304E-BF8B-B83341C529FC}|BookingSystemAPI\\BookingSystemAPI.csproj|solutionrelative:bookingsystemapi\\bookingsystemapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A9FBECC-1CFA-4193-90A0-0203DF1F4445}|Application\\Application.csproj|c:\\users\\thinkpad\\source\\repos\\bookingsystemapi\\application\\dtos\\authresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9A9FBECC-1CFA-4193-90A0-0203DF1F4445}|Application\\Application.csproj|solutionrelative:application\\dtos\\authresultdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{544D1909-DEC3-46F4-9DFD-C8716C1A6145}|Infrastructure\\Infrastructure.csproj|c:\\users\\thinkpad\\source\\repos\\bookingsystemapi\\infrastructure\\userdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{544D1909-DEC3-46F4-9DFD-C8716C1A6145}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\userdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9A9FBECC-1CFA-4193-90A0-0203DF1F4445}|Application\\Application.csproj|c:\\users\\thinkpad\\source\\repos\\bookingsystemapi\\application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9A9FBECC-1CFA-4193-90A0-0203DF1F4445}|Application\\Application.csproj|solutionrelative:application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{544D1909-DEC3-46F4-9DFD-C8716C1A6145}|Infrastructure\\Infrastructure.csproj|c:\\users\\thinkpad\\source\\repos\\bookingsystemapi\\infrastructure\\migrations\\20260315054157_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{544D1909-DEC3-46F4-9DFD-C8716C1A6145}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\migrations\\20260315054157_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{544D1909-DEC3-46F4-9DFD-C8716C1A6145}|Infrastructure\\Infrastructure.csproj|c:\\users\\thinkpad\\source\\repos\\bookingsystemapi\\infrastructure\\migrations\\userdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{544D1909-DEC3-46F4-9DFD-C8716C1A6145}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\migrations\\userdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BookingSystemAPI",
+              "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\BookingSystemAPI\\BookingSystemAPI.csproj",
+              "RelativeDocumentMoniker": "BookingSystemAPI\\BookingSystemAPI.csproj",
+              "ToolTip": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\BookingSystemAPI\\BookingSystemAPI.csproj",
+              "RelativeToolTip": "BookingSystemAPI\\BookingSystemAPI.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-17T16:29:33.375Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\Domain\\Interfaces\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "Domain\\Interfaces\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\Domain\\Interfaces\\IUserRepository.cs",
+              "RelativeToolTip": "Domain\\Interfaces\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T16:09:38.483Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AuthResultDTO.cs",
+              "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\Application\\DTOs\\AuthResultDTO.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\AuthResultDTO.cs",
+              "ToolTip": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\Application\\DTOs\\AuthResultDTO.cs",
+              "RelativeToolTip": "Application\\DTOs\\AuthResultDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T16:01:52.825Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\Application\\Interfaces\\IAuthService.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\IAuthService.cs",
+              "ToolTip": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\Application\\Interfaces\\IAuthService.cs",
+              "RelativeToolTip": "Application\\Interfaces\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T00:31:10.084Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\Infrastructure\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Services\\AuthService.cs",
+              "ToolTip": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\Infrastructure\\Services\\AuthService.cs*",
+              "RelativeToolTip": "Infrastructure\\Services\\AuthService.cs*",
+              "ViewState": "AgIAABgAAAAAAAAAAAAgwCkAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T00:28:53.044Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Application",
+              "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\Application\\Application.csproj",
+              "RelativeDocumentMoniker": "Application\\Application.csproj",
+              "ToolTip": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\Application\\Application.csproj",
+              "RelativeToolTip": "Application\\Application.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-04-17T00:28:12.385Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\BookingSystemAPI\\Program.cs",
+              "RelativeDocumentMoniker": "BookingSystemAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\BookingSystemAPI\\Program.cs",
+              "RelativeToolTip": "BookingSystemAPI\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T00:23:42.938Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\Presentation\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Presentation\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\Presentation\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Presentation\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T00:22:46.448Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "Infrastructure\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-17T00:21:56.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "userDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\Infrastructure\\userDbContext.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\userDbContext.cs",
+              "ToolTip": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\Infrastructure\\userDbContext.cs",
+              "RelativeToolTip": "Infrastructure\\userDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T19:59:36.421Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "20260315054157_InitialCreate.cs",
+              "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\Infrastructure\\Migrations\\20260315054157_InitialCreate.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Migrations\\20260315054157_InitialCreate.cs",
+              "ToolTip": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\Infrastructure\\Migrations\\20260315054157_InitialCreate.cs",
+              "RelativeToolTip": "Infrastructure\\Migrations\\20260315054157_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T20:08:27.708Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "userDbContextModelSnapshot.cs",
+              "DocumentMoniker": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\Infrastructure\\Migrations\\userDbContextModelSnapshot.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Migrations\\userDbContextModelSnapshot.cs",
+              "ToolTip": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\Infrastructure\\Migrations\\userDbContextModelSnapshot.cs",
+              "RelativeToolTip": "Infrastructure\\Migrations\\userDbContextModelSnapshot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-16T20:08:28.139Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

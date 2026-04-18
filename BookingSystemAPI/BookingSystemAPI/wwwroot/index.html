@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking System - Authentication</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --primary-light: #3b82f6;
+            --success: #10b981;
+            --error: #ef4444;
+            --neutral-50: #f9fafb;
+            --neutral-100: #f3f4f6;
+            --neutral-300: #d1d5db;
+            --neutral-500: #6b7280;
+            --neutral-700: #374151;
+            --neutral-900: #111827;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 40px 30px 30px;
+            text-align: center;
+        }
+
+        .card-header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .card-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .card-content {
+            padding: 40px 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--neutral-700);
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid var(--neutral-300);
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            background-color: rgba(37, 99, 235, 0.01);
+        }
+
+        input::placeholder {
+            color: var(--neutral-500);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+        }
+
+        .btn-primary:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: var(--neutral-100);
+            color: var(--neutral-700);
+            border: 2px solid var(--neutral-300);
+        }
+
+        .btn-secondary:hover:not(:disabled) {
+            background: var(--neutral-200);
+            border-color: var(--neutral-400);
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .alert {
+            padding: 14px 16px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            font-size: 14px;
+            display: none;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .alert.show {
+            display: block;
+        }
+
+        .alert-success {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: #047857;
+            border-left: 4px solid var(--success);
+        }
+
+        .alert-error {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: #991b1b;
+            border-left: 4px solid var(--error);
+        }
+
+        .form-toggle {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 14px;
+            color: var(--neutral-600);
+        }
+
+        .form-toggle button {
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-weight: 600;
+            cursor: pointer;
+            padding: 0;
+            text-decoration: underline;
+            margin-left: 4px;
+            font-size: inherit;
+        }
+
+        .form-toggle button:hover {
+            color: var(--primary-dark);
+        }
+
+        .loading-spinner {
+            display: none;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .btn-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1 id="formTitle">Sign In</h1>
+                <p id="formSubtitle">Access your booking system</p>
+            </div>
+
+            <div class="card-content">
+                <div id="alert" class="alert"></div>
+
+                <form id="authForm">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            placeholder="Enter your username"
+                            required
+                        />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            required
+                        />
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="btn-primary" id="submitBtn">
+                            <div class="btn-content">
+                                <span class="loading-spinner" id="spinner"></span>
+                                <span id="btnText">Sign In</span>
+                            </div>
+                        </button>
+                        <button type="button" class="btn-secondary" id="toggleBtn">
+                            Sign Up
+                        </button>
+                    </div>
+                </form>
+
+                <div class="form-toggle">
+                    <span id="toggleText">Don't have an account?</span>
+                    <button id="toggleLink" type="button">Create one</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE_URL = 'https://localhost:7164';
+        const LOGIN_ENDPOINT = '/api/Auth/login';
+        const REGISTER_ENDPOINT = '/api/Auth/register';
+
+        const form = document.getElementById('authForm');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const submitBtn = document.getElementById('submitBtn');
+        const toggleBtn = document.getElementById('toggleBtn');
+        const toggleLink = document.getElementById('toggleLink');
+        const alert = document.getElementById('alert');
+        const spinner = document.getElementById('spinner');
+        const btnText = document.getElementById('btnText');
+        const formTitle = document.getElementById('formTitle');
+        const formSubtitle = document.getElementById('formSubtitle');
+        const toggleText = document.getElementById('toggleText');
+
+        let isLoginMode = true;
+
+        // Toggle between login and register
+        function toggleMode() {
+            isLoginMode = !isLoginMode;
+            
+            if (isLoginMode) {
+                formTitle.textContent = 'Sign In';
+                formSubtitle.textContent = 'Access your booking system';
+                btnText.textContent = 'Sign In';
+                submitBtn.className = 'btn-primary';
+                toggleBtn.textContent = 'Sign Up';
+                toggleText.textContent = "Don't have an account?";
+                toggleLink.textContent = 'Create one';
+            } else {
+                formTitle.textContent = 'Create Account';
+                formSubtitle.textContent = 'Join the booking system';
+                btnText.textContent = 'Register';
+                submitBtn.className = 'btn-primary';
+                toggleBtn.textContent = 'Back to Login';
+                toggleText.textContent = 'Already have an account?';
+                toggleLink.textContent = 'Sign in';
+            }
+            
+            form.reset();
+            hideAlert();
+        }
+
+        toggleBtn.addEventListener('click', toggleMode);
+        toggleLink.addEventListener('click', toggleMode);
+
+        // Show alert
+        function showAlert(message, type) {
+            alert.textContent = message;
+            alert.className = `alert show alert-${type}`;
+        }
+
+        // Hide alert
+        function hideAlert() {
+            alert.className = 'alert';
+        }
+
+        // Handle form submission
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            hideAlert();
+
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value.trim();
+
+            if (!username || !password) {
+                showAlert('Please fill in all fields', 'error');
+                return;
+            }
+
+            if (password.length < 6) {
+                showAlert('Password must be at least 6 characters', 'error');
+                return;
+            }
+
+            // Disable button and show spinner
+            submitBtn.disabled = true;
+            spinner.style.display = 'inline-block';
+
+            try {
+                const endpoint = isLoginMode ? LOGIN_ENDPOINT : REGISTER_ENDPOINT;
+                const url = `${API_BASE_URL}${endpoint}`;
+
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username,
+                        password
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    if (isLoginMode) {
+                        showAlert('✓ Login successful! Welcome back.', 'success');
+                        // Store token if your API returns one
+                        if (data.token) {
+                            localStorage.setItem('authToken', data.token);
+                        }
+                    } else {
+                        showAlert('✓ Account created! You can now sign in.', 'success');
+                        // Switch back to login mode after successful registration
+                        setTimeout(() => {
+                            toggleMode();
+                        }, 1500);
+                    }
+                    form.reset();
+                } else {
+                    // Handle specific error messages from your API
+                    const errorMessage = data.message || data.error || 'Authentication failed';
+                    showAlert(errorMessage, 'error');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showAlert('Connection error. Make sure your backend is running.', 'error');
+            } finally {
+                submitBtn.disabled = false;
+                spinner.style.display = 'none';
+            }
+        });
+
+        // Allow Enter key to submit
+        passwordInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                form.dispatchEvent(new Event('submit'));
+            }
+        });
+    </script>
+</body>
+</html>

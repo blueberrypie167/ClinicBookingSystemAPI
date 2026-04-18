@@ -1,0 +1,17 @@
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
+
+namespace BookingSystemAPI.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class AuthController : ControllerBase
+    {
+        [HttpPost("register")]
+        public IActionResult<User> Register(userDTO user)
+        {
+
+        }
+    }
+}

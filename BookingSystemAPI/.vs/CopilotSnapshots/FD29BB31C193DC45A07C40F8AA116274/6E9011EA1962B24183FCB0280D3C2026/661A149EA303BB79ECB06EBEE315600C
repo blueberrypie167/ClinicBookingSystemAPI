@@ -1,0 +1,44 @@
+﻿using Application.Interfaces;
+using Domain.DTOs;
+using Domain.Entities;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using Microsoft.AspNetCore.Identity;
+
+namespace Application.Services
+{
+    public class AuthService : IAuthService
+    {
+        public static User user = new Domain.Entities.User();
+
+        public async Task SaveChangesAsync()
+        {
+            await Task.CompletedTask;
+        }
+        public async Task<User> Register(userDTO request)
+        {
+            var hashedpassword = new PasswordHasher<User>().HashPassword(user, request.Password);
+
+            user.Username = request.Username;
+            user.PasswordHash = hashedpassword;
+
+            return user;
+        }
+        public async Task<string> Login(userDTO request)
+        {
+            if (user.Username != request.Username)
+            {
+                return "User not found";
+            }
+            if (new PasswordHasher<User>().VerifyHashedPassword(user, user.PasswordHash, request.Password)
+                == PasswordVerificationResult.Failed)
+            {
+                return "Username or Password is not correct";
+            }
+
+            string token = "Successful login";
+            return token;
+        }
+    }
+}
