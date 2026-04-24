@@ -12,6 +12,6 @@ namespace Domain.Interfaces
 
         public Task<User> CreateUserAsync(User user);
 
-        public Task<int> SaveChangesAsync();
+        
     }
 }

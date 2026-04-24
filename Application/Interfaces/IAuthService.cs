@@ -9,7 +9,7 @@ namespace Application.Interfaces
     public interface IAuthService
     {
         Task<AuthResultDTO> LoginUserAsync(userDTO request);
-        Task<User> RegisterUserAsync(userDTO request);
+        Task<AuthResultDTO> RegisterUserAsync(userDTO request);
 
         Task SaveChangesAsync();
     }

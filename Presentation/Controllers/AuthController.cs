@@ -22,23 +22,41 @@ namespace BookingSystemAPI.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register(userDTO request)
         {
-            User user = await _authService.RegisterUserAsync(request);
+            var result = await _authService.RegisterUserAsync(request);
+            
+            if(result.Success is false)
+            {
+                return BadRequest(result.Message);
+            }
 
-            return StatusCode(201, user);
+            return Created(result.Message, result);
         }
 
         [HttpPost("login")]
-        [Authorize]
+     
         public async Task<IActionResult> Login(userDTO request)
         {
             var result = await _authService.LoginUserAsync(request);
 
             if(result.Success == false)
             {
-                return StatusCode(401, result.Error);
+                return BadRequest(result.Message);
             }
 
-            return StatusCode(200, result);
+            return Ok(result);
+        }
+        [Authorize]
+        [HttpGet]
+        public IActionResult Authenticated()
+        {
+            return Ok("You are Authenticated");
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet("admin-only")]
+        public IActionResult AdminAuthenticated()
+        {
+            return Ok("You are Admin");
         }
     }
 }

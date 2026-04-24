@@ -1,5 +1,6 @@
 using Domain.Entities;
 using Domain.Interfaces;
+using Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 
@@ -30,9 +31,6 @@ namespace Infrastructure.Repositories
             return await _context.users.FirstOrDefaultAsync(u => u.Username == username);
         }
 
-        public async Task<int> SaveChangesAsync()
-        {
-            return await _context.SaveChangesAsync();
-        }
+        
     }
 }

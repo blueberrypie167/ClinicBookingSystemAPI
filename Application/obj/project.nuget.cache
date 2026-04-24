@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "iFn0I6bvbzg=",
+  "dgSpecHash": "aGnH+748zuI=",
   "success": true,
   "projectFilePath": "C:\\Users\\Thinkpad\\source\\repos\\BookingSystemAPI\\Application\\Application.csproj",
   "expectedPackageFiles": [
@@ -35,8 +35,8 @@
     "C:\\Users\\Thinkpad\\.nuget\\packages\\microsoft.extensions.webencoders\\8.0.11\\microsoft.extensions.webencoders.8.0.11.nupkg.sha512",
     "C:\\Users\\Thinkpad\\.nuget\\packages\\microsoft.net.http.headers\\2.3.0\\microsoft.net.http.headers.2.3.0.nupkg.sha512",
     "C:\\Users\\Thinkpad\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
-    "C:\\Users\\Thinkpad\\.nuget\\packages\\system.security.cryptography.pkcs\\8.0.1\\system.security.cryptography.pkcs.8.0.1.nupkg.sha512",
-    "C:\\Users\\Thinkpad\\.nuget\\packages\\system.security.cryptography.xml\\8.0.2\\system.security.cryptography.xml.8.0.2.nupkg.sha512"
+    "C:\\Users\\Thinkpad\\.nuget\\packages\\system.security.cryptography.pkcs\\10.0.6\\system.security.cryptography.pkcs.10.0.6.nupkg.sha512",
+    "C:\\Users\\Thinkpad\\.nuget\\packages\\system.security.cryptography.xml\\10.0.6\\system.security.cryptography.xml.10.0.6.nupkg.sha512"
   ],
   "logs": []
 }

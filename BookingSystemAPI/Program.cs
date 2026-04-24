@@ -1,21 +1,29 @@
 using Application.Interfaces;
-using Infrastructure.Services;
 using Domain.Interfaces;
-using Infrastructure;
+using Infrastructure.Persistence;
 using Infrastructure.Repositories;
+using Infrastructure.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
+using System.Text;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+// repositories
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+
+// DbContext 
 
 builder.Services.AddDbContext<userDbContext>(options =>
     options.UseSqlServer(
@@ -23,6 +31,29 @@ builder.Services.AddDbContext<userDbContext>(options =>
         b => b.MigrationsAssembly("Infrastructure")  
     )   
 );
+
+// JWT authentication 
+
+var jwtSettings = builder.Configuration.GetSection("Jwt");
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = jwtSettings["Issuer"],
+        ValidAudience = jwtSettings["Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(jwtSettings["Key"]!))
+    };
+});
+
+builder.Services.AddAuthorization();
+
 // use dotnet ef migrations add InitialCreate --project Infrastructure --startup-project BookingSystemAPI
 var app = builder.Build();
 
@@ -39,7 +70,9 @@ app.MapFallbackToFile("index.html");
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+app.UseAuthentication(); 
+
+app.UseAuthorization(); 
 
 app.MapControllers();
 
