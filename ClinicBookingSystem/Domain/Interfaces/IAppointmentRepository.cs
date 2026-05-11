@@ -8,6 +8,8 @@ namespace Domain.Interfaces
 
         public Task<Appointment?> GetAppointmentAsync(int appointmentId);
 
-        public Task<List<Appointment?>> GetAllAppointmentsAsync(string username);
+        public Task<List<Appointment?>> GetAllAppointmentsAsync(Guid userId);
+
+        public Task<List<Appointment>> GetAppointmentsByDoctorIdAsync(Guid doctorId);
     }
 }

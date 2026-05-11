@@ -1,9 +1,67 @@
 [
   {
-    "ContainingType": "Presentation.AppointmentController",
-    "Method": "CancelAppointment",
-    "RelativePath": "api/Appointment/{appointmentId}",
+    "ContainingType": "Program\u002B\u003C\u003Ec",
+    "Method": "\u003C\u003CMain\u003E$\u003Eb__0_4",
+    "RelativePath": "",
+    "HttpMethod": "GET",
+    "IsController": false,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ClinicBookingSystem.Presentation.Controllers.AdminController",
+    "Method": "CreateDoctor",
+    "RelativePath": "api/Admin/Create-Doctor",
     "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "doctor",
+        "Type": "ClinicBookingSystem.Features.DoctorServices.CreateDoctorDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClinicBookingSystem.Presentation.Controllers.AdminController",
+    "Method": "AdminAuthenticated",
+    "RelativePath": "api/Admin/test/admin-only",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClinicBookingSystem.Presentation.Controllers.AppointmentController",
+    "Method": "BookAppointment",
+    "RelativePath": "api/Appointment/Book-Appointment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "timeslotDto",
+        "Type": "ClinicBookingSystem.Features.AppointmentService.CreateAppointmentDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClinicBookingSystem.Presentation.Controllers.AppointmentController",
+    "Method": "CancelAppointment",
+    "RelativePath": "api/Appointment/Cancel/{appointmentId}",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -16,46 +74,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Presentation.AppointmentController",
-    "Method": "BookAppointment",
-    "RelativePath": "api/Appointment/{timeslotId}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "timeslotId",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "Notes",
-        "Type": "System.String",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Presentation.AppointmentController",
-    "Method": "GetAppointmentsByUsername",
-    "RelativePath": "api/Appointment/{username}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "username",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Presentation.AuthController",
-    "Method": "AdminAuthenticated",
-    "RelativePath": "api/Auth/admin-only",
+    "ContainingType": "ClinicBookingSystem.Presentation.Controllers.AppointmentController",
+    "Method": "GetAppointmentsForDoctors",
+    "RelativePath": "api/Appointment/View-Doctor-Appointments",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -63,9 +84,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Presentation.AuthController",
-    "Method": "Authenticated",
-    "RelativePath": "api/Auth/authentication-all-roles",
+    "ContainingType": "ClinicBookingSystem.Presentation.Controllers.AppointmentController",
+    "Method": "GetAppointmentsForPatients",
+    "RelativePath": "api/Appointment/View-Patient-Appointments",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -73,7 +94,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Presentation.AuthController",
+    "ContainingType": "ClinicBookingSystem.Presentation.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",
     "HttpMethod": "POST",
@@ -82,14 +103,14 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "Common.DTOs.userDTO",
+        "Type": "ClinicBookingSystem.Features.Authentication.userDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Presentation.AuthController",
+    "ContainingType": "ClinicBookingSystem.Presentation.Controllers.AuthController",
     "Method": "Register",
     "RelativePath": "api/Auth/register",
     "HttpMethod": "POST",
@@ -98,55 +119,91 @@
     "Parameters": [
       {
         "Name": "request",
-        "Type": "Common.DTOs.userDTO",
+        "Type": "ClinicBookingSystem.Features.Authentication.userDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Presentation.DoctorController",
-    "Method": "CreateDoctor",
-    "RelativePath": "api/Doctor",
-    "HttpMethod": "POST",
+    "ContainingType": "ClinicBookingSystem.Presentation.Controllers.AuthController",
+    "Method": "Authenticated",
+    "RelativePath": "api/Auth/test/authentication-all-roles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClinicBookingSystem.Presentation.Controllers.DoctorController",
+    "Method": "GetDoctorAvailability",
+    "RelativePath": "api/Doctor/{doctorId}/availability",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "username",
-        "Type": "System.String",
+        "Name": "doctorId",
+        "Type": "System.Guid",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Presentation.TimeslotController",
+    "ContainingType": "ClinicBookingSystem.Presentation.Controllers.DoctorController",
     "Method": "CreateTimeslot",
-    "RelativePath": "api/Timeslot/create-timeslot",
+    "RelativePath": "api/Doctor/Create-Timeslot",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "timeslotDto",
-        "Type": "Common.DTOs.TimeslotDTO",
+        "Type": "ClinicBookingSystem.Features.DoctorServices.CreateTimeslotDTO",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "Presentation.TimeslotController",
-    "Method": "ViewTimeslotsByDoctor",
-    "RelativePath": "api/Timeslot/view-timeslots/{doctorName}",
+    "ContainingType": "ClinicBookingSystem.Presentation.Controllers.DoctorController",
+    "Method": "ViewAllDoctors",
+    "RelativePath": "api/Doctor/View-Doctors",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClinicBookingSystem.Presentation.Controllers.DoctorController",
+    "Method": "ViewDoctorsBySpecialty",
+    "RelativePath": "api/Doctor/View-Doctors-By-Specialty/{specialty}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "doctorName",
-        "Type": "System.String",
+        "Name": "specialty",
+        "Type": "Domain.Entities.Specialty",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClinicBookingSystem.Presentation.Controllers.DoctorController",
+    "Method": "ViewTimeslotsByDoctor",
+    "RelativePath": "api/Doctor/View-Timeslots",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paginatedDTO",
+        "Type": "ClinicBookingSystem.Features.SharedDtos.PaginatedDTO",
         "IsRequired": true
       }
     ],

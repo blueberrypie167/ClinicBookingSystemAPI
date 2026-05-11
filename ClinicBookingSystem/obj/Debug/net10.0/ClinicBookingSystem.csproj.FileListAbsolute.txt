@@ -160,3 +160,8 @@ C:\Users\Thinkpad\source\repos\ClinicBookingSystem\ClinicBookingSystem\bin\Debug
 C:\Users\Thinkpad\source\repos\ClinicBookingSystem\ClinicBookingSystem\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\Thinkpad\source\repos\ClinicBookingSystem\ClinicBookingSystem\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\Thinkpad\source\repos\ClinicBookingSystem\ClinicBookingSystem\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\Thinkpad\source\repos\ClinicBookingSystem\ClinicBookingSystem\bin\Debug\net10.0\FluentValidation.dll
+C:\Users\Thinkpad\source\repos\ClinicBookingSystem\ClinicBookingSystem\bin\Debug\net10.0\FluentValidation.AspNetCore.dll
+C:\Users\Thinkpad\source\repos\ClinicBookingSystem\ClinicBookingSystem\bin\Debug\net10.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\Thinkpad\source\repos\ClinicBookingSystem\ClinicBookingSystem\bin\Debug\net10.0\ClinicBookingSystem.staticwebassets.runtime.json
+C:\Users\Thinkpad\source\repos\ClinicBookingSystem\ClinicBookingSystem\obj\Debug\net10.0\compressed\c9xni3dmku-{0}-d7h4pp5hro-d7h4pp5hro.gz

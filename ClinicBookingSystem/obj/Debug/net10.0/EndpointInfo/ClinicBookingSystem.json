@@ -13,32 +13,10 @@
     }
   ],
   "paths": {
-    "/api/Appointment/{timeslotId}": {
-      "post": {
+    "/": {
+      "get": {
         "tags": [
-          "Appointment"
-        ],
-        "parameters": [
-          {
-            "name": "timeslotId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
-              "format": "int32"
-            }
-          },
-          {
-            "name": "Notes",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
+          "ClinicBookingSystem"
         ],
         "responses": {
           "200": {
@@ -47,8 +25,84 @@
         }
       }
     },
-    "/api/Appointment/{appointmentId}": {
+    "/api/Admin/test/admin-only": {
+      "get": {
+        "tags": [
+          "Admin"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Admin/Create-Doctor": {
       "post": {
+        "tags": [
+          "Admin"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDoctorDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Appointment/Book-Appointment": {
+      "post": {
+        "tags": [
+          "Appointment"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAppointmentDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAppointmentDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAppointmentDTO"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Appointment/Cancel/{appointmentId}": {
+      "put": {
         "tags": [
           "Appointment"
         ],
@@ -74,20 +128,22 @@
         }
       }
     },
-    "/api/Appointment/{username}": {
+    "/api/Appointment/View-Patient-Appointments": {
       "get": {
         "tags": [
           "Appointment"
         ],
-        "parameters": [
-          {
-            "name": "username",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
+        "responses": {
+          "200": {
+            "description": "OK"
           }
+        }
+      }
+    },
+    "/api/Appointment/View-Doctor-Appointments": {
+      "get": {
+        "tags": [
+          "Appointment"
         ],
         "responses": {
           "200": {
@@ -160,7 +216,7 @@
         }
       }
     },
-    "/api/Auth/authentication-all-roles": {
+    "/api/Auth/test/authentication-all-roles": {
       "get": {
         "tags": [
           "Auth"
@@ -172,19 +228,7 @@
         }
       }
     },
-    "/api/Auth/admin-only": {
-      "get": {
-        "tags": [
-          "Auth"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Doctor": {
+    "/api/Doctor/Create-Timeslot": {
       "post": {
         "tags": [
           "Doctor"
@@ -193,17 +237,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "string"
+                "$ref": "#/components/schemas/CreateTimeslotDTO"
               }
             },
             "text/json": {
               "schema": {
-                "type": "string"
+                "$ref": "#/components/schemas/CreateTimeslotDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "type": "string"
+                "$ref": "#/components/schemas/CreateTimeslotDTO"
               }
             }
           },
@@ -216,26 +260,26 @@
         }
       }
     },
-    "/api/Timeslot/create-timeslot": {
+    "/api/Doctor/View-Timeslots": {
       "post": {
         "tags": [
-          "Timeslot"
+          "Doctor"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/TimeslotDTO"
+                "$ref": "#/components/schemas/PaginatedDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/TimeslotDTO"
+                "$ref": "#/components/schemas/PaginatedDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/TimeslotDTO"
+                "$ref": "#/components/schemas/PaginatedDTO"
               }
             }
           },
@@ -248,18 +292,53 @@
         }
       }
     },
-    "/api/Timeslot/view-timeslots/{doctorName}": {
+    "/api/Doctor/View-Doctors": {
       "get": {
         "tags": [
-          "Timeslot"
+          "Doctor"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Doctor/View-Doctors-By-Specialty/{specialty}": {
+      "get": {
+        "tags": [
+          "Doctor"
         ],
         "parameters": [
           {
-            "name": "doctorName",
+            "name": "specialty",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "$ref": "#/components/schemas/Specialty"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Doctor/{doctorId}/availability": {
+      "get": {
+        "tags": [
+          "Doctor"
+        ],
+        "parameters": [
+          {
+            "name": "doctorId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -273,7 +352,10 @@
   },
   "components": {
     "schemas": {
-      "TimeslotDTO": {
+      "CreateAppointmentDTO": {
+        "required": [
+          "timeslotId"
+        ],
         "type": "object",
         "properties": {
           "timeslotId": {
@@ -284,6 +366,36 @@
             ],
             "format": "int32"
           },
+          "notes": {
+            "type": [
+              "null",
+              "string"
+            ]
+          }
+        }
+      },
+      "CreateDoctorDTO": {
+        "required": [
+          "username",
+          "specialty"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "specialty": {
+            "$ref": "#/components/schemas/Specialty"
+          }
+        }
+      },
+      "CreateTimeslotDTO": {
+        "required": [
+          "starts_At",
+          "duration"
+        ],
+        "type": "object",
+        "properties": {
           "starts_At": {
             "type": "string",
             "format": "date-time"
@@ -298,7 +410,44 @@
           }
         }
       },
+      "PaginatedDTO": {
+        "required": [
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": [
+              "null",
+              "string"
+            ]
+          },
+          "pageSize": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          },
+          "page": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
+          }
+        }
+      },
+      "Specialty": {
+        "type": "integer"
+      },
       "userDTO": {
+        "required": [
+          "username",
+          "password"
+        ],
         "type": "object",
         "properties": {
           "username": {
@@ -313,6 +462,12 @@
   },
   "tags": [
     {
+      "name": "ClinicBookingSystem"
+    },
+    {
+      "name": "Admin"
+    },
+    {
       "name": "Appointment"
     },
     {
@@ -320,9 +475,6 @@
     },
     {
       "name": "Doctor"
-    },
-    {
-      "name": "Timeslot"
     }
   ]
 }

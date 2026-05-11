@@ -1,11 +1,12 @@
 using AutoMapper;
 using ClinicBookingSystem.Features.AppointmentService;
+using ClinicBookingSystem.Features.Authentication;
+using ClinicBookingSystem.Features.DoctorServices;
+using ClinicBookingSystem.Features.SharedDtos;
 using ClinicBookingSystem.Infrastructure.Repositories;
-using Common;
 using Domain.Interfaces;
-using Features.Authentication;
-using Features.DoctorServices;
-using Features.Slot;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Infrastructure.Persistence;
 using Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -14,22 +15,38 @@ using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.IdentityModel.Tokens;
 using Scalar.AspNetCore;
 using System.Text;
+using System.Text.Json.Serialization;
+using static ClinicBookingSystem.Features.Validators.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// exception handling
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
 
 // Automapper
 builder.Services.AddAutoMapper(cfg => { }, typeof(Mappings).Assembly);
 
 // Add services to the container.
-
-builder.Services.AddControllers();
 builder.Services.AddOpenApi();
+builder.Services.AddControllers();
+builder.Services.AddValidatorsFromAssemblyContaining<CreateTimeslotDtoValidator>();
+builder.Services.AddFluentValidationAutoValidation();
+
+var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>() ?? [];
+
+// --- ADD CORS SERVICE HERE --- FRONTEND RELATED
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+        policy.WithOrigins(allowedOrigins)
+              .AllowAnyMethod()
+              .AllowAnyHeader());
+});
 
 // repositories
-
 builder.Services.AddScoped<AuthService>();
 builder.Services.AddScoped<DoctorService>();
-builder.Services.AddScoped<SlotService>();
 builder.Services.AddScoped<AppointmentService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
@@ -38,7 +55,6 @@ builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // DbContext 
-
 builder.Services.AddDbContext<userDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")
@@ -46,7 +62,6 @@ builder.Services.AddDbContext<userDbContext>(options =>
 );
 
 // JWT authentication 
-
 var jwtSettings = builder.Configuration.GetSection("Jwt");
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -67,7 +82,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddAuthorization();
 
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -77,6 +91,15 @@ if (app.Environment.IsDevelopment())
     app.MapScalarApiReference();
 }
 
+
+// --- USE CORS MIDDLEWARE HERE (Before authentication and controllers) ---
+app.UseCors("AllowFrontend");
+
+// Static files middleware - REQUIRED for serving HTML
+app.UseStaticFiles();
+
+app.UseExceptionHandler();
+
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
@@ -84,5 +107,8 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+// Serve index.html for root path -- FRONTEND RELATED
+app.MapGet("/", () => Results.File("wwwroot/index.html", "text/html"));
 
 app.Run();
