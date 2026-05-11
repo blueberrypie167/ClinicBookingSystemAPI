@@ -20,28 +20,6 @@ Built to demonstrate clean architecture, DDD principles, and role-based access c
 - **Pagination support** for timeslot browsing
 
 ---
-## Architecture Overview
-┌──────────────────────────────────────────┐
-│           Presentation Layer             │
-│      Controllers · Middleware · DTOs     │
-└───────────────────┬──────────────────────┘
-                    │
-┌───────────────────▼──────────────────────┐
-│             Features Layer               │
-│       Services · Validators · Mappers    │
-└───────────────────┬──────────────────────┘
-                    │
-┌───────────────────▼──────────────────────┐
-│              Domain Layer                │
-│     Entities · Interfaces · Exceptions   │
-└───────────────────┬──────────────────────┘
-                    │
-┌───────────────────▼──────────────────────┐
-│           Infrastructure Layer           │
-│   EF Core · Repositories · DbContext     │
-└──────────────────────────────────────────┘
----
-
 ## Core Features
 
 ### Authentication
@@ -92,7 +70,7 @@ Infrastructure (EF Core, Repositories, DbContext)
 ## Configuration
 
 Add the following to `appsettings.json` or user-secrets:
-```{
+{
   "ConnectionStrings": {
     "DefaultConnection": "Server=localhost;Database=ClinicBookingSystem;Trusted_Connection=True;TrustServerCertificate=True"
   },
@@ -104,13 +82,13 @@ Add the following to `appsettings.json` or user-secrets:
   "Cors": {
     "AllowedOrigins": ["https://localhost:7003"]
   }
-}```
+}
 
 ---
 
 ## Run Locally
-
-```# 1. Clone the repo
+```
+# 1. Clone the repo
 git clone https://github.com/your-username/ClinicBookingSystem.git
 cd ClinicBookingSystem
 
@@ -121,8 +99,8 @@ dotnet user-secrets set "Jwt:Key" "your-dev-secret-key"
 dotnet ef database update
 
 # 4. Run
-dotnet run --project ClinicBookingSystem.API```
-
+dotnet run --project ClinicBookingSystem.API
+```
 > Scalar UI will be available at https://localhost:7003/scalar 
 > the minimal demo page will be at https://localhost:7003/
 
@@ -142,4 +120,4 @@ dotnet run --project ClinicBookingSystem.API```
 ## Notes for Reviewers
 
 This project is mainly a demonstration of backend architecture, domain design, and API design patterns. 
-Automated tests are not included in this version. I will add Unit Testing soon.
+Automated tests are not included in this version. Focus was on architecture and design patterns, Unit Testing will be added soon.
