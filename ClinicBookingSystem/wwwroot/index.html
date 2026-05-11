@@ -1,0 +1,1055 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinic Booking System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+            header h1 {
+                color: #667eea;
+            }
+
+        .auth-section {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .btn-logout {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            background: #e74c3c;
+            color: white;
+        }
+
+            .btn-logout:hover {
+                background: #c0392b;
+            }
+
+        .user-info {
+            background: #ecf0f1;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .content {
+            display: none;
+        }
+
+            .content.active {
+                display: block;
+            }
+
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+            .section h2 {
+                color: #667eea;
+                margin-bottom: 20px;
+                border-bottom: 2px solid #667eea;
+                padding-bottom: 10px;
+            }
+
+            .section h3 {
+                color: #764ba2;
+                margin-top: 20px;
+                margin-bottom: 15px;
+            }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+            input:focus, select:focus, textarea:focus {
+                outline: none;
+                border-color: #667eea;
+                box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+            }
+
+        button {
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+            button:hover {
+                background: #764ba2;
+            }
+
+        .message {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+            .message.success {
+                background: #d4edda;
+                color: #155724;
+                border: 1px solid #c3e6cb;
+                display: block;
+            }
+
+            .message.error {
+                background: #f8d7da;
+                color: #721c24;
+                border: 1px solid #f5c6cb;
+                display: block;
+            }
+
+            .message.info {
+                background: #d1ecf1;
+                color: #0c5460;
+                border: 1px solid #bee5eb;
+                display: block;
+            }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+            table thead {
+                background: #f5f5f5;
+            }
+
+            table th, table td {
+                padding: 12px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+
+            table th {
+                font-weight: 600;
+                color: #667eea;
+            }
+
+            table tr:hover {
+                background: #f9f9f9;
+            }
+
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+
+        .btn-cancel {
+            background: #e74c3c;
+        }
+
+            .btn-cancel:hover {
+                background: #c0392b;
+            }
+
+        .btn-info {
+            background: #3498db;
+        }
+
+            .btn-info:hover {
+                background: #2980b9;
+            }
+
+        .navbar {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+            .nav-buttons button {
+                padding: 8px 16px;
+            }
+
+                .nav-buttons button.active {
+                    background: #764ba2;
+                }
+
+        .auth-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+            .auth-tabs button.active {
+                background: #764ba2;
+            }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+            }
+
+                .nav-buttons button {
+                    width: 100%;
+                }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏥 Clinic Booking System</h1>
+            <div class="auth-section">
+                <span class="user-info" id="userInfo">Not logged in</span>
+                <button class="btn-logout" id="logoutBtn" style="display:none;">Logout</button>
+            </div>
+        </header>
+
+        <div id="authContent" class="content active">
+            <div class="section">
+                <h2>Welcome</h2>
+                <p style="margin-bottom: 20px; color: #666;">Please login or register to continue</p>
+
+                <div class="auth-tabs">
+                    <button type="button" class="auth-tab active" data-auth="login">Login</button>
+                    <button type="button" class="auth-tab" data-auth="register">Register</button>
+                </div>
+
+                <div id="loginPanel">
+                    <h3>Login</h3>
+                    <form id="loginForm">
+                        <div id="loginMessage" class="message"></div>
+                        <div class="form-group">
+                            <label for="loginUsername">Username</label>
+                            <input type="text" id="loginUsername" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="loginPassword">Password</label>
+                            <input type="password" id="loginPassword" required>
+                        </div>
+                        <button type="submit">Login</button>
+                    </form>
+                </div>
+
+                <div id="registerPanel" style="display:none;">
+                    <h3>Register</h3>
+                    <form id="registerForm">
+                        <div id="registerMessage" class="message"></div>
+                        <div class="form-group">
+                            <label for="registerUsername">Username</label>
+                            <input type="text" id="registerUsername" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="registerPassword">Password</label>
+                            <input type="password" id="registerPassword" required>
+                        </div>
+                        <button type="submit">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="navBar" class="navbar" style="display:none;">
+            <div class="nav-buttons">
+                <button class="nav-btn active" data-section="patient">Patient</button>
+                <button class="nav-btn" data-section="doctor">Doctor</button>
+                <button class="nav-btn" data-section="admin">Admin</button>
+            </div>
+        </div>
+
+        <div id="patientContent" class="content">
+            <div class="section">
+                <h2>👤 Patient Dashboard</h2>
+                <div id="patientMessage" class="message"></div>
+
+                <h3>📅 Book Appointment</h3>
+                <form id="bookAppointmentForm">
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="appointmentSpecialty">1️⃣ Select Specialty</label>
+                            <select id="appointmentSpecialty" required>
+                                <option value="">-- Choose Specialty --</option>
+                                <option value="0">General Practitioner</option>
+                                <option value="1">Pediatrics</option>
+                                <option value="2">Dermatology</option>
+                                <option value="3">Cardiology</option>
+                                <option value="4">Gynecology</option>
+                                <option value="5">Orthopedics</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="appointmentDoctor">2️⃣ Select Doctor</label>
+                            <select id="appointmentDoctor" required disabled>
+                                <option value="">-- Choose Doctor First --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appointmentTimeslot">3️⃣ Select Timeslot</label>
+                        <select id="appointmentTimeslot" required disabled>
+                            <option value="">-- Choose Doctor First --</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appointmentNotes">Notes</label>
+                        <textarea id="appointmentNotes" rows="3" placeholder="Any additional notes..."></textarea>
+                    </div>
+                    <button type="submit">Book Appointment</button>
+                </form>
+
+                <h3 style="margin-top: 30px;">📋 My Appointments</h3>
+                <button id="viewPatientAppointmentsBtn" class="btn-info">Load Appointments</button>
+                <div id="patientAppointmentsContainer" class="table-container" style="display:none;">
+                    <table id="patientAppointmentsTable">
+                        <thead>
+                            <tr>
+                                <th>Appointment ID</th>
+                                <th>Doctor</th>
+                                <th>Created</th>
+                                <th>Status</th>
+                                <th>Notes</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🏥 Available Doctors</h2>
+                <button id="viewAllDoctorsBtn" class="btn-info">Load Doctors</button>
+                <div id="doctorsContainer" class="table-container" style="display:none;">
+                    <table id="doctorsTable">
+                        <thead>
+                            <tr>
+                                <th>Doctor Name</th>
+                                <th>Specialty</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="doctorContent" class="content">
+            <div class="section">
+                <h2>👨‍⚕️ Doctor Dashboard</h2>
+                <div id="doctorMessage" class="message"></div>
+
+                <h3>⏰ Create Timeslot</h3>
+                <form id="createTimeslotForm">
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="timeslotStart">Start Time</label>
+                            <input type="datetime-local" id="timeslotStart" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="timeslotDuration">Duration (minutes)</label>
+                            <input type="number" id="timeslotDuration" min="30" step="30" value="60" required>
+                        </div>
+                    </div>
+                    <button type="submit">Create Timeslot</button>
+                </form>
+
+                <h3 style="margin-top: 30px;">📅 My Timeslots</h3>
+                <div class="form-group">
+                    <label for="timeslotPage">Page</label>
+                    <div style="display:flex; gap:10px;">
+                        <input type="number" id="timeslotPage" min="1" value="1" style="width:100px;">
+                        <input type="number" id="timeslotPageSize" min="1" max="100" value="10" style="width:100px;">
+                        <button type="button" id="loadTimeslotsBtn">Load Timeslots</button>
+                    </div>
+                </div>
+                <div id="timeslotsContainer" class="table-container" style="display:none;">
+                    <table id="timeslotsTable">
+                        <thead>
+                            <tr>
+                                <th>Timeslot ID</th>
+                                <th>Start Time</th>
+                                <th>Duration</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <h3 style="margin-top: 30px;">👥 My Appointments</h3>
+                <button id="viewDoctorAppointmentsBtn" class="btn-info">Load Appointments</button>
+                <div id="doctorAppointmentsContainer" class="table-container" style="display:none;">
+                    <table id="doctorAppointmentsTable">
+                        <thead>
+                            <tr>
+                                <th>Appointment ID</th>
+                                <th>Patient</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="adminContent" class="content">
+            <div class="section">
+                <h2>👨‍💼 Admin Dashboard</h2>
+                <div id="adminMessage" class="message"></div>
+
+                <h3>➕ Create Doctor</h3>
+                <form id="createDoctorForm">
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="doctorUsername">Doctor Username</label>
+                            <input type="text" id="doctorUsername" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="doctorSpecialtyAdmin">Specialty</label>
+                            <select id="doctorSpecialtyAdmin" required>
+                                <option value="">-- Select Specialty --</option>
+                                <option value="0">General Practitioner</option>
+                                <option value="1">Pediatrics</option>
+                                <option value="2">Dermatology</option>
+                                <option value="3">Cardiology</option>
+                                <option value="4">Gynecology</option>
+                                <option value="5">Orthopedics</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit">Create Doctor</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'https://localhost:7003/api';
+        const storageKeys = { token: 'authToken', role: 'userRole', username: 'username' };
+
+        let authToken = localStorage.getItem(storageKeys.token);
+        let userRole = localStorage.getItem(storageKeys.role);
+        let username = localStorage.getItem(storageKeys.username);
+        let cachedDoctorsBySpecialty = {};
+
+        document.addEventListener('DOMContentLoaded', () => {
+            wireEvents();
+            if (authToken && userRole) {
+                showPostLoginUI();
+            } else {
+                showPreLoginUI();
+            }
+        });
+
+        function wireEvents() {
+            document.getElementById('loginForm').addEventListener('submit', handleLogin);
+            document.getElementById('registerForm').addEventListener('submit', handleRegister);
+            document.getElementById('logoutBtn').addEventListener('click', handleLogout);
+
+            document.querySelectorAll('.auth-tab').forEach(btn => {
+                btn.addEventListener('click', () => switchAuthTab(btn.dataset.auth));
+            });
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    showSection(e.target.dataset.section);
+                });
+            });
+
+            document.getElementById('bookAppointmentForm').addEventListener('submit', handleBookAppointment);
+            document.getElementById('viewPatientAppointmentsBtn').addEventListener('click', loadPatientAppointments);
+            document.getElementById('viewAllDoctorsBtn').addEventListener('click', loadAllDoctors);
+            document.getElementById('appointmentSpecialty').addEventListener('change', loadDoctorsBySpecialty);
+            document.getElementById('appointmentDoctor').addEventListener('change', loadTimeslotsByDoctor);
+
+            document.getElementById('createTimeslotForm').addEventListener('submit', handleCreateTimeslot);
+            document.getElementById('loadTimeslotsBtn').addEventListener('click', loadDoctorTimeslots);
+            document.getElementById('viewDoctorAppointmentsBtn').addEventListener('click', loadDoctorAppointments);
+
+            document.getElementById('createDoctorForm').addEventListener('submit', handleCreateDoctor);
+        }
+
+        function switchAuthTab(tab) {
+            document.querySelectorAll('.auth-tab').forEach(b => b.classList.remove('active'));
+            document.querySelector(`.auth-tab[data-auth="${tab}"]`).classList.add('active');
+            document.getElementById('loginPanel').style.display = tab === 'login' ? 'block' : 'none';
+            document.getElementById('registerPanel').style.display = tab === 'register' ? 'block' : 'none';
+        }
+
+        async function handleLogin(e) {
+            e.preventDefault();
+            const loginUsername = document.getElementById('loginUsername').value.trim();
+            const loginPassword = document.getElementById('loginPassword').value.trim();
+
+            const response = await apiRequest('/auth/login', {
+                method: 'POST',
+                body: { username: loginUsername, password: loginPassword }
+            });
+
+            if (!response.ok) {
+                showMessage('loginMessage', response.data || 'Login failed', 'error');
+                return;
+            }
+
+            const token = response.data?.token ?? response.data?.Token;
+            const role = response.data?.role ?? response.data?.Role;
+
+            if (!token || !role) {
+                showMessage('loginMessage', 'Login response missing token or role', 'error');
+                return;
+            }
+
+            authToken = token;
+            userRole = role;
+            username = loginUsername;
+
+            localStorage.setItem(storageKeys.token, authToken);
+            localStorage.setItem(storageKeys.role, userRole);
+            localStorage.setItem(storageKeys.username, username);
+
+            showMessage('loginMessage', `Welcome ${username} (${userRole})`, 'success');
+            setTimeout(showPostLoginUI, 500);
+        }
+
+        async function handleRegister(e) {
+            e.preventDefault();
+            const registerUsername = document.getElementById('registerUsername').value.trim();
+            const registerPassword = document.getElementById('registerPassword').value.trim();
+
+            const response = await apiRequest('/auth/register', {
+                method: 'POST',
+                body: { username: registerUsername, password: registerPassword }
+            });
+
+            if (!response.ok) {
+                showMessage('registerMessage', response.data || 'Registration failed', 'error');
+                return;
+            }
+
+            showMessage('registerMessage', 'Registration successful. Please login.', 'success');
+            document.getElementById('registerForm').reset();
+            switchAuthTab('login');
+        }
+
+        function handleLogout() {
+            authToken = null;
+            userRole = null;
+            username = null;
+            localStorage.removeItem(storageKeys.token);
+            localStorage.removeItem(storageKeys.role);
+            localStorage.removeItem(storageKeys.username);
+            showPreLoginUI();
+        }
+
+        function showPostLoginUI() {
+            document.getElementById('authContent').classList.remove('active');
+            document.getElementById('navBar').style.display = 'block';
+            document.getElementById('logoutBtn').style.display = 'block';
+            document.getElementById('userInfo').textContent = `Logged in as: ${username} (${userRole})`;
+            updateNavigation();
+            if (userRole === 'Doctor') showSection('doctor');
+            else if (userRole === 'Admin') showSection('admin');
+            else showSection('patient');
+        }
+
+        function showPreLoginUI() {
+            document.getElementById('authContent').classList.add('active');
+            document.getElementById('navBar').style.display = 'none';
+            document.getElementById('logoutBtn').style.display = 'none';
+            document.getElementById('userInfo').textContent = 'Not logged in';
+            document.getElementById('patientContent').classList.remove('active');
+            document.getElementById('doctorContent').classList.remove('active');
+            document.getElementById('adminContent').classList.remove('active');
+            document.getElementById('loginForm').reset();
+            document.getElementById('registerForm').reset();
+        }
+
+        function updateNavigation() {
+            const patientBtn = document.querySelector('[data-section="patient"]');
+            const doctorBtn = document.querySelector('[data-section="doctor"]');
+            const adminBtn = document.querySelector('[data-section="admin"]');
+
+            patientBtn.style.display = 'block';
+
+            if (userRole === 'Doctor') {
+                doctorBtn.style.display = 'block';
+                adminBtn.style.display = 'none';
+            } else if (userRole === 'Admin') {
+                doctorBtn.style.display = 'none';
+                adminBtn.style.display = 'block';
+            } else {
+                doctorBtn.style.display = 'none';
+                adminBtn.style.display = 'none';
+            }
+        }
+
+        function showSection(section = 'patient') {
+            document.getElementById('patientContent').classList.remove('active');
+            document.getElementById('doctorContent').classList.remove('active');
+            document.getElementById('adminContent').classList.remove('active');
+
+            if (section === 'patient') document.getElementById('patientContent').classList.add('active');
+            else if (section === 'doctor' && (userRole === 'Doctor' || userRole === 'Admin')) document.getElementById('doctorContent').classList.add('active');
+            else if (section === 'admin' && userRole === 'Admin') document.getElementById('adminContent').classList.add('active');
+            else document.getElementById('patientContent').classList.add('active');
+        }
+
+        async function loadDoctorsBySpecialty(e) {
+            const specialty = e.target.value;
+            const doctorSelect = document.getElementById('appointmentDoctor');
+            const timeslotSelect = document.getElementById('appointmentTimeslot');
+
+            doctorSelect.innerHTML = '<option value="">-- Choose Doctor --</option>';
+            timeslotSelect.innerHTML = '<option value="">-- Choose Doctor First --</option>';
+            doctorSelect.disabled = true;
+            timeslotSelect.disabled = true;
+
+            if (!specialty) return;
+
+            const response = await apiRequest(`/doctor/View-Doctors-By-Specialty/${specialty}`);
+
+            if (!response.ok) {
+                showMessage('patientMessage', response.data || 'Failed to load doctors', 'error');
+                return;
+            }
+
+            const doctors = Array.isArray(response.data) ? response.data : [];
+
+            if (doctors.length === 0) {
+                doctorSelect.innerHTML = '<option value="">-- No doctors in this specialty --</option>';
+                showMessage('patientMessage', 'No doctors found in this specialty', 'info');
+                return;
+            }
+
+            doctors.forEach(doctor => {
+                const option = document.createElement('option');
+                option.value = String(doctor.doctorId ?? doctor.doctorID);
+                option.textContent = `${doctor.Username ?? doctor.username ?? 'Doctor'} (${getSpecialtyName(doctor.specialtyId ?? doctor.specialty)})`;
+                doctorSelect.appendChild(option);
+            });
+
+            doctorSelect.disabled = false;
+            showMessage('patientMessage', `Found ${doctors.length} doctor(s)`, 'info');
+        }
+
+        async function loadTimeslotsByDoctor(e) {
+            const doctorId = e.target.value;
+            const timeslotSelect = document.getElementById('appointmentTimeslot');
+
+            timeslotSelect.innerHTML = '<option value="">-- Choose Timeslot --</option>';
+            timeslotSelect.disabled = true;
+
+            if (!doctorId) return;
+
+            const response = await apiRequest(`/doctor/${doctorId}/availability`, {}, true);
+
+            if (!response.ok) {
+                showMessage('patientMessage', response.data || 'Failed to load timeslots', 'error');
+                return;
+            }
+
+            const timeslots = Array.isArray(response.data?.timeslots) ? response.data.timeslots : [];
+
+            if (!timeslots.length) {
+                timeslotSelect.innerHTML = '<option value="">-- No timeslots available --</option>';
+                showMessage('patientMessage', 'This doctor has no timeslots available', 'info');
+                return;
+            }
+
+            const available = timeslots.filter(isTimeslotAvailable);
+
+            if (!available.length) {
+                timeslotSelect.innerHTML = '<option value="">-- All timeslots are booked --</option>';
+                showMessage('patientMessage', 'All timeslots are booked', 'info');
+                return;
+            }
+
+            available.forEach(slot => {
+                const option = document.createElement('option');
+                option.value = slot.timeslotId ?? slot.timeslotID;
+                option.textContent = `${formatDate(getTimeslotStart(slot))} (${slot.duration ?? slot.Duration} mins)`;
+                timeslotSelect.appendChild(option);
+            });
+
+            timeslotSelect.disabled = false;
+            showMessage('patientMessage', `Loaded ${available.length} available timeslot(s)`, 'success');
+        }
+
+        function isTimeslotAvailable(slot) {
+            const status = slot.currentStatus ?? slot.CurrentStatus;
+            if (typeof status === 'number') return status === 0; // 0 = Open
+            if (typeof status === 'string') return status.toLowerCase() === 'open';
+            return true;
+        }
+
+        async function handleBookAppointment(e) {
+            e.preventDefault();
+            const timeslotId = document.getElementById('appointmentTimeslot').value;
+            const notes = document.getElementById('appointmentNotes').value;
+
+            if (!timeslotId) {
+                showMessage('patientMessage', 'Please select a timeslot', 'error');
+                return;
+            }
+
+            const response = await apiRequest('/appointment/Book-Appointment', {
+                method: 'POST',
+                body: { timeslotId: parseInt(timeslotId, 10), notes }
+            }, true);
+
+            if (!response.ok) {
+                showMessage('patientMessage', response.data || 'Booking failed', 'error');
+                return;
+            }
+
+            showMessage('patientMessage', 'Appointment booked successfully!', 'success');
+            document.getElementById('bookAppointmentForm').reset();
+            document.getElementById('appointmentDoctor').innerHTML = '<option value="">-- Choose Doctor --</option>';
+            document.getElementById('appointmentTimeslot').innerHTML = '<option value="">-- Choose Doctor First --</option>';
+            document.getElementById('appointmentDoctor').disabled = true;
+            document.getElementById('appointmentTimeslot').disabled = true;
+
+            setTimeout(loadPatientAppointments, 500);
+        }
+
+        async function loadPatientAppointments() {
+            const response = await apiRequest('/appointment/View-Patient-Appointments', {}, true);
+
+            if (!response.ok) {
+                showMessage('patientMessage', response.data || 'Failed to load appointments', 'error');
+                return;
+            }
+
+            const appointments = Array.isArray(response.data) ? response.data : [];
+            const tbody = document.querySelector('#patientAppointmentsTable tbody');
+            tbody.innerHTML = '';
+
+            if (!appointments.length) {
+                tbody.innerHTML = '<tr><td colspan="6">No appointments found</td></tr>';
+            } else {
+                appointments.forEach(apt => {
+                    const createdAt = formatDate(apt.created_At ?? apt.Created_At ?? apt.createdAt);
+                    tbody.innerHTML += `
+                            <tr>
+                                <td>${apt.appointmentId ?? apt.appointmentID ?? '-'}</td>
+                                <td>${apt.doctorName ?? apt.doctor?.username ?? '-'}</td>
+                                <td>${createdAt}</td>
+                                <td>${apt.appointmentStatus ?? apt.status ?? '-'}</td>
+                                <td>${apt.notes ?? apt.Notes ?? '-'}</td>
+                                <td>
+                                    <button class="btn-small btn-cancel" onclick="cancelAppointment(${apt.appointmentId})">Cancel</button>
+                                </td>
+                            </tr>
+                        `;
+                });
+            }
+
+            document.getElementById('patientAppointmentsContainer').style.display = 'block';
+        }
+
+        async function cancelAppointment(appointmentId) {
+            if (!confirm('Are you sure you want to cancel this appointment?')) return;
+
+            const response = await apiRequest(`/appointment/Cancel/${appointmentId}`, { method: 'PUT' }, true);
+
+            if (!response.ok) {
+                showMessage('patientMessage', response.data || 'Cancellation failed', 'error');
+                return;
+            }
+
+            showMessage('patientMessage', 'Appointment cancelled successfully', 'success');
+            loadPatientAppointments();
+        }
+
+        async function loadAllDoctors() {
+            const response = await apiRequest('/doctor/View-Doctors');
+
+            if (!response.ok) {
+                showMessage('patientMessage', response.data || 'Failed to load doctors', 'error');
+                return;
+            }
+
+            const doctors = Array.isArray(response.data) ? response.data : [];
+            const tbody = document.querySelector('#doctorsTable tbody');
+            tbody.innerHTML = '';
+
+            if (!doctors.length) {
+                tbody.innerHTML = '<tr><td colspan="3">No doctors found</td></tr>';
+            } else {
+                doctors.forEach(doctor => {
+                    tbody.innerHTML += `
+                            <tr>
+                                <td>${doctor.Username ?? doctor.username ?? '-'}</td>
+                                <td>${getSpecialtyName(doctor.specialtyId ?? doctor.specialty)}</td>
+                                <td>Available</td>
+                            </tr>
+                        `;
+                });
+            }
+
+            document.getElementById('doctorsContainer').style.display = 'block';
+        }
+
+        async function handleCreateTimeslot(e) {
+            e.preventDefault();
+            const startsAt = document.getElementById('timeslotStart').value;
+            const duration = parseInt(document.getElementById('timeslotDuration').value, 10);
+
+            const response = await apiRequest('/doctor/Create-Timeslot', {
+                method: 'POST',
+                body: { Starts_At: startsAt, Duration: duration }
+            }, true);
+
+            if (!response.ok) {
+                showMessage('doctorMessage', response.data || 'Creation failed', 'error');
+                return;
+            }
+
+            showMessage('doctorMessage', 'Timeslot created successfully!', 'success');
+            document.getElementById('createTimeslotForm').reset();
+            setTimeout(loadDoctorTimeslots, 500);
+        }
+
+        async function loadDoctorTimeslots() {
+            const page = parseInt(document.getElementById('timeslotPage').value, 10);
+            const pageSize = parseInt(document.getElementById('timeslotPageSize').value, 10);
+
+            const response = await apiRequest('/doctor/View-Timeslots/', {
+                method: 'POST',
+                body: { username, page, pageSize }
+            }, true);
+
+            if (!response.ok) {
+                showMessage('doctorMessage', response.data || 'Failed to load timeslots', 'error');
+                return;
+            }
+
+            const data = response.data ?? {};
+            const items = Array.isArray(data.items) ? data.items : [];
+            const tbody = document.querySelector('#timeslotsTable tbody');
+            tbody.innerHTML = '';
+
+            if (!items.length) {
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;">No timeslots found</td></tr>';
+            } else {
+                items.forEach(slot => {
+                    tbody.innerHTML += `
+                            <tr>
+                                <td>${slot.timeslotId ?? slot.timeslotID}</td>
+                                <td>${formatDate(getTimeslotStart(slot))}</td>
+                                <td>${slot.duration ?? slot.Duration} mins</td>
+                                <td>${slot.currentStatus ?? slot.CurrentStatus ?? 'Open'}</td>
+                            </tr>
+                        `;
+                });
+            }
+
+            document.getElementById('timeslotsContainer').style.display = 'block';
+            showMessage('doctorMessage', `Loaded ${items.length} timeslot(s)`, 'info');
+        }
+
+        async function loadDoctorAppointments() {
+            const response = await apiRequest('/appointment/View-Doctor-Appointments', {}, true);
+
+            if (!response.ok) {
+                showMessage('doctorMessage', response.data || 'Failed to load appointments', 'error');
+                return;
+            }
+
+            const appointments = Array.isArray(response.data) ? response.data : [];
+            const tbody = document.querySelector('#doctorAppointmentsTable tbody');
+            tbody.innerHTML = '';
+
+            appointments.forEach(apt => {
+                const patientName = apt.patientName ?? apt.patient?.username ?? '-';
+                const time = formatDate(apt.timeslot?.starts_At ?? apt.timeslot?.Starts_At ?? apt.created_At ?? apt.Created_At);
+                const status = apt.appointmentStatus ?? apt.status ?? '-';
+                const notes = apt.notes ?? apt.Notes ?? '-';
+
+                tbody.innerHTML += `
+                        <tr>
+                            <td>${apt.appointmentId ?? '-'}</td>
+                            <td>${patientName}</td>
+                            <td>${time}</td>
+                            <td>${status}</td>
+                            <td>${notes}</td>
+                        </tr>
+                    `;
+            });
+
+            document.getElementById('doctorAppointmentsContainer').style.display = 'block';
+        }
+
+        async function handleCreateDoctor(e) {
+            e.preventDefault();
+            const docUsername = document.getElementById('doctorUsername').value.trim();
+            const specialty = parseInt(document.getElementById('doctorSpecialtyAdmin').value, 10);
+
+            const response = await apiRequest('/admin/Create-Doctor', {
+                method: 'POST',
+                body: { Username: docUsername, Specialty: specialty }
+            }, true);
+
+            if (!response.ok) {
+                showMessage('adminMessage', response.data || 'Creation failed', 'error');
+                return;
+            }
+
+            showMessage('adminMessage', 'Doctor created successfully!', 'success');
+            document.getElementById('createDoctorForm').reset();
+        }
+
+        async function apiRequest(path, options = {}, requireAuth = false) {
+            const headers = new Headers(options.headers || {});
+            let body = options.body;
+
+            if (body && typeof body === 'object' && !(body instanceof FormData)) {
+                headers.set('Content-Type', 'application/json');
+                body = JSON.stringify(body);
+            }
+
+            if (requireAuth && authToken) {
+                headers.set('Authorization', `Bearer ${authToken}`);
+            }
+
+            const response = await fetch(`${API_URL}${path}`, {
+                method: options.method || 'GET',
+                headers,
+                body
+            });
+
+            const data = await readResponse(response);
+            return { ok: response.ok, data };
+        }
+
+        async function readResponse(response) {
+            const contentType = response.headers.get('content-type') || '';
+            if (contentType.includes('application/json')) return response.json();
+            return response.text();
+        }
+
+        function showMessage(elementId, message, type) {
+            const element = document.getElementById(elementId);
+            element.textContent = message;
+            element.className = `message ${type}`;
+            setTimeout(() => { element.className = 'message'; }, 5000);
+        }
+
+        function getSpecialtyName(specialty) {
+            const specialties = {
+                0: 'General Practitioner',
+                1: 'Pediatrics',
+                2: 'Dermatology',
+                3: 'Cardiology',
+                4: 'Gynecology',
+                5: 'Orthopedics',
+                'GeneralPractitioner': 'General Practitioner',
+                'Pediatrics': 'Pediatrics',
+                'Dermatology': 'Dermatology',
+                'Cardiology': 'Cardiology',
+                'Gynecology': 'Gynecology',
+                'Orthopedics': 'Orthopedics'
+            };
+            if (specialty === null || specialty === undefined) return 'Unknown';
+            return specialties[specialty] || specialties[String(specialty)] || 'Unknown';
+        }
+
+        function getTimeslotStart(slot) {
+            return slot.starts_At ?? slot.Starts_At ?? slot.startsAt ?? slot.startTime ?? slot.start;
+        }
+
+        function formatDate(value) {
+            if (!value) return '-';
+            const date = new Date(value);
+            if (Number.isNaN(date.getTime())) return '-';
+            return date.toLocaleString();
+        }
+    </script>
+</body>
+</html>

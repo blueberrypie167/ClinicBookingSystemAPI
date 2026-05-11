@@ -1,0 +1,2 @@
+wwwroot\index.html
+C:\Users\Thinkpad\source\repos\ClinicBookingSystem\ClinicBookingSystem\wwwroot\index.html
