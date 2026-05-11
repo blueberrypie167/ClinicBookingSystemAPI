@@ -102,7 +102,7 @@ dotnet ef database update
 dotnet run --project ClinicBookingSystem.API
 ```
 > Scalar UI will be available at https://localhost:7003/scalar 
-> the minimal demo page will be at https://localhost:7003/
+> the minimal demo page will be at https://localhost:7003/index.html
 
 ---
 
