@@ -1,2 +1,2 @@
 wwwroot\index.html
-C:\Users\Thinkpad\source\repos\ClinicBookingSystem\ClinicBookingSystem\wwwroot\index.html
+C:\git\ClinicBookingSystemAPI\ClinicBookingSystem\wwwroot\index.html

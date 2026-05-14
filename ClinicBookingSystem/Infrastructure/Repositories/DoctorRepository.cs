@@ -25,10 +25,7 @@ namespace Infrastructure.Repositories
         {
             return await _context.doctors
                 .Where(d => d.doctorId == doctorId)
-                .Join(_context.users,
-                      d => d.userId,
-                      u => u.userId,
-                      (d, u) => u.Username)
+                .Select(d => d.User.Username)
                 .FirstOrDefaultAsync();
         }
         // SaveChangesAsync is removed, using Unit of Work pattern from now on.

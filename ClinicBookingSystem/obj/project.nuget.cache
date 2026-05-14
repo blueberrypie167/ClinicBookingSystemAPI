@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bm6vp7Ns8Rc=",
+  "dgSpecHash": "Wac8GdRryfU=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Thinkpad\\source\\repos\\ClinicBookingSystem\\ClinicBookingSystem\\ClinicBookingSystem.csproj",
+  "projectFilePath": "C:\\git\\ClinicBookingSystemAPI\\ClinicBookingSystem\\ClinicBookingSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Thinkpad\\.nuget\\packages\\automapper\\16.1.1\\automapper.16.1.1.nupkg.sha512",
     "C:\\Users\\Thinkpad\\.nuget\\packages\\azure.core\\1.47.1\\azure.core.1.47.1.nupkg.sha512",

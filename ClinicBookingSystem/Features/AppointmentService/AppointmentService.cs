@@ -85,6 +85,11 @@ namespace ClinicBookingSystem.Features.AppointmentService
                 throw new NotFoundException("Appointment was not found.");
             }
 
+            if (appointment.IsCancelled()) // or whatever your logic check is
+            {
+                throw new ConflictException("Appointment is already cancelled.");
+            }
+
             var timeslot = await _slotRepository.GetTimeslotAsync(appointment.timeslotId);
 
             await using var tx = await _unitOfWork.BeginTransactionAsync();

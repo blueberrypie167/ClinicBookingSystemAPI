@@ -28,7 +28,7 @@ namespace Domain.Entities
 
         public DateTime Created_At { get; set; }
 
-
+        public bool IsCancelled() => appointmentStatus is AppointmentStatus.Cancelled;
         // Relationships
         public Timeslot? Timeslot { get; set; }
 

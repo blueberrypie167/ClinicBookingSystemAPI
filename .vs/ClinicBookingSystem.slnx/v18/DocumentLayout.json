@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\git\\ClinicBookingSystemAPI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{86030462-2C2D-788E-8635-2A7F6605BF22}|ClinicBookingSystem\\ClinicBookingSystem.csproj|c:\\git\\clinicbookingsystemapi\\clinicbookingsystem\\features\\appointmentservice\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86030462-2C2D-788E-8635-2A7F6605BF22}|ClinicBookingSystem\\ClinicBookingSystem.csproj|solutionrelative:clinicbookingsystem\\features\\appointmentservice\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86030462-2C2D-788E-8635-2A7F6605BF22}|ClinicBookingSystem\\ClinicBookingSystem.csproj|c:\\git\\clinicbookingsystemapi\\clinicbookingsystem\\domain\\entities\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86030462-2C2D-788E-8635-2A7F6605BF22}|ClinicBookingSystem\\ClinicBookingSystem.csproj|solutionrelative:clinicbookingsystem\\domain\\entities\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86030462-2C2D-788E-8635-2A7F6605BF22}|ClinicBookingSystem\\ClinicBookingSystem.csproj|c:\\git\\clinicbookingsystemapi\\clinicbookingsystem\\domain\\entities\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86030462-2C2D-788E-8635-2A7F6605BF22}|ClinicBookingSystem\\ClinicBookingSystem.csproj|solutionrelative:clinicbookingsystem\\domain\\entities\\doctor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86030462-2C2D-788E-8635-2A7F6605BF22}|ClinicBookingSystem\\ClinicBookingSystem.csproj|c:\\git\\clinicbookingsystemapi\\clinicbookingsystem\\domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86030462-2C2D-788E-8635-2A7F6605BF22}|ClinicBookingSystem\\ClinicBookingSystem.csproj|solutionrelative:clinicbookingsystem\\domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86030462-2C2D-788E-8635-2A7F6605BF22}|ClinicBookingSystem\\ClinicBookingSystem.csproj|c:\\git\\clinicbookingsystemapi\\clinicbookingsystem\\domain\\entities\\timeslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86030462-2C2D-788E-8635-2A7F6605BF22}|ClinicBookingSystem\\ClinicBookingSystem.csproj|solutionrelative:clinicbookingsystem\\domain\\entities\\timeslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86030462-2C2D-788E-8635-2A7F6605BF22}|ClinicBookingSystem\\ClinicBookingSystem.csproj|c:\\git\\clinicbookingsystemapi\\clinicbookingsystem\\infrastructure\\repositories\\doctorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86030462-2C2D-788E-8635-2A7F6605BF22}|ClinicBookingSystem\\ClinicBookingSystem.csproj|solutionrelative:clinicbookingsystem\\infrastructure\\repositories\\doctorrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86030462-2C2D-788E-8635-2A7F6605BF22}|ClinicBookingSystem\\ClinicBookingSystem.csproj|c:\\git\\clinicbookingsystemapi\\clinicbookingsystem\\infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86030462-2C2D-788E-8635-2A7F6605BF22}|ClinicBookingSystem\\ClinicBookingSystem.csproj|solutionrelative:clinicbookingsystem\\infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{86030462-2C2D-788E-8635-2A7F6605BF22}|ClinicBookingSystem\\ClinicBookingSystem.csproj|c:\\git\\clinicbookingsystemapi\\clinicbookingsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86030462-2C2D-788E-8635-2A7F6605BF22}|ClinicBookingSystem\\ClinicBookingSystem.csproj|solutionrelative:clinicbookingsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\git\\ClinicBookingSystemAPI\\ClinicBookingSystem\\Domain\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "ClinicBookingSystem\\Domain\\Entities\\User.cs",
+              "ToolTip": "C:\\git\\ClinicBookingSystemAPI\\ClinicBookingSystem\\Domain\\Entities\\User.cs",
+              "RelativeToolTip": "ClinicBookingSystem\\Domain\\Entities\\User.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T06:55:49.126Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Doctor.cs",
+              "DocumentMoniker": "C:\\git\\ClinicBookingSystemAPI\\ClinicBookingSystem\\Domain\\Entities\\Doctor.cs",
+              "RelativeDocumentMoniker": "ClinicBookingSystem\\Domain\\Entities\\Doctor.cs",
+              "ToolTip": "C:\\git\\ClinicBookingSystemAPI\\ClinicBookingSystem\\Domain\\Entities\\Doctor.cs",
+              "RelativeToolTip": "ClinicBookingSystem\\Domain\\Entities\\Doctor.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T06:55:43.869Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Timeslot.cs",
+              "DocumentMoniker": "C:\\git\\ClinicBookingSystemAPI\\ClinicBookingSystem\\Domain\\Entities\\Timeslot.cs",
+              "RelativeDocumentMoniker": "ClinicBookingSystem\\Domain\\Entities\\Timeslot.cs",
+              "ToolTip": "C:\\git\\ClinicBookingSystemAPI\\ClinicBookingSystem\\Domain\\Entities\\Timeslot.cs",
+              "RelativeToolTip": "ClinicBookingSystem\\Domain\\Entities\\Timeslot.cs",
+              "ViewState": "AgIAACAAAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T06:55:38.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Appointment.cs",
+              "DocumentMoniker": "C:\\git\\ClinicBookingSystemAPI\\ClinicBookingSystem\\Domain\\Entities\\Appointment.cs",
+              "RelativeDocumentMoniker": "ClinicBookingSystem\\Domain\\Entities\\Appointment.cs",
+              "ToolTip": "C:\\git\\ClinicBookingSystemAPI\\ClinicBookingSystem\\Domain\\Entities\\Appointment.cs",
+              "RelativeToolTip": "ClinicBookingSystem\\Domain\\Entities\\Appointment.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAA5wB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T06:54:55.311Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AppointmentService.cs",
+              "DocumentMoniker": "C:\\git\\ClinicBookingSystemAPI\\ClinicBookingSystem\\Features\\AppointmentService\\AppointmentService.cs",
+              "RelativeDocumentMoniker": "ClinicBookingSystem\\Features\\AppointmentService\\AppointmentService.cs",
+              "ToolTip": "C:\\git\\ClinicBookingSystemAPI\\ClinicBookingSystem\\Features\\AppointmentService\\AppointmentService.cs",
+              "RelativeToolTip": "ClinicBookingSystem\\Features\\AppointmentService\\AppointmentService.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAEwD0AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T06:49:34.169Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DoctorRepository.cs",
+              "DocumentMoniker": "C:\\git\\ClinicBookingSystemAPI\\ClinicBookingSystem\\Infrastructure\\Repositories\\DoctorRepository.cs",
+              "RelativeDocumentMoniker": "ClinicBookingSystem\\Infrastructure\\Repositories\\DoctorRepository.cs",
+              "ToolTip": "C:\\git\\ClinicBookingSystemAPI\\ClinicBookingSystem\\Infrastructure\\Repositories\\DoctorRepository.cs",
+              "RelativeToolTip": "ClinicBookingSystem\\Infrastructure\\Repositories\\DoctorRepository.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAYwBwAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T06:45:21.109Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "C:\\git\\ClinicBookingSystemAPI\\ClinicBookingSystem\\Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "ClinicBookingSystem\\Infrastructure\\Repositories\\UserRepository.cs",
+              "ToolTip": "C:\\git\\ClinicBookingSystemAPI\\ClinicBookingSystem\\Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "ClinicBookingSystem\\Infrastructure\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T06:48:32.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\git\\ClinicBookingSystemAPI\\ClinicBookingSystem\\Program.cs",
+              "RelativeDocumentMoniker": "ClinicBookingSystem\\Program.cs",
+              "ToolTip": "C:\\git\\ClinicBookingSystemAPI\\ClinicBookingSystem\\Program.cs",
+              "RelativeToolTip": "ClinicBookingSystem\\Program.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAAAHIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-11T22:15:58.303Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
